@@ -69,6 +69,10 @@ func (c *H) Put(ctx context.Context, uri string, p, des interface{}) (err error)
 	return c.DoMethod(ctx, uri, p, des, http.MethodPut)
 }
 
+func (c *H) Delete(ctx context.Context, uri string, p, des interface{}) (err error) {
+	return c.DoMethod(ctx, uri, p, des, http.MethodDelete)
+}
+
 func (c *H) Get(ctx context.Context, uri string, p Params, des interface{}) (err error) {
 	u := c.GetUrl(uri, p)
 	by, err := json.Marshal(p)
